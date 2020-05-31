@@ -12,7 +12,7 @@ from django.http import HttpResponse
 
 def home_page(request):
     """Return Homepage details"""
-    html = "<html><body>Please try this API <b>https://user-activity-tracker.uc.r.appspot.com/getuseractivity</b> " \
+    html = "<html><body>Please try this API <b>http://127.0.0.1:8000/getuseractivity/</b> " \
            "in Post Man for getting the activity results</body></html>"
     return HttpResponse(html)
 
