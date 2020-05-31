@@ -3,6 +3,11 @@ from user_activity.models import Users, ActivityPeriod
 
 
 class UserActivitySerializer(serializers.ModelSerializer):
+    """
+    Class Name: UserActivitySerializer.
+
+    Description: Serializer class for get user log details.
+    """
     activity_period = serializers.SerializerMethodField()
 
     class Meta:

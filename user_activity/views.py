@@ -10,10 +10,10 @@ from user_activity.serializers import UserActivitySerializer
 from django.http import HttpResponse
 
 
-
-
 def home_page(request):
-    html = "<html><body>Please try this API <b>https://user-activity-tracker.uc.r.appspot.com/getuseractivity</b> in Post Man for getting the activity results</body></html>"
+    """Return Homepage details"""
+    html = "<html><body>Please try this API <b>https://user-activity-tracker.uc.r.appspot.com/getuseractivity</b> " \
+           "in Post Man for getting the activity results</body></html>"
     return HttpResponse(html)
 
 

@@ -1,0 +1,5 @@
+ENGINE = 'django.db.backends.mysql'
+HOST = '/cloudsql/user-activity-tracker:us-central1:user-activity'
+USER = ''
+PASSWORD = ''
+DATABASE_NAME = ''

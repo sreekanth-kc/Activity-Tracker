@@ -75,18 +75,20 @@ WSGI_APPLICATION = 'User_Activity_Tracker.wsgi.application'
 
 
 if os.getenv('GAE_APPLICATION', None):
+    from .production_settings import *
     # Running on production App Engine, so connect to Google Cloud SQL using
     # the unix socket at /cloudsql/<your-cloudsql-connection string>
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/user-activity-tracker:us-central1:user-activity',
-            'USER': 'root',
-            'PASSWORD': '',
-            'NAME': 'user_activity_tracker',
+            'ENGINE': ENGINE,
+            'HOST': HOST,
+            'USER': USER,
+            'PASSWORD': PASSWORD,
+            'NAME': DATABASE_NAME,
         }
     }
 else:
+    from .local_settings import *
     # Running locally so connect to either a local MySQL instance or connect to
     # Cloud SQL via the proxy. To start the proxy via command line:
     #
@@ -95,12 +97,12 @@ else:
     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
     DATABASES = {
             'default': {
-                'ENGINE': 'django.db.backends.mysql',
-                'NAME': 'user_activity_tracker',
-                'USER': 'root',
-                'PASSWORD': '',
-                'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-                'PORT': '3306',
+                'ENGINE': ENGINE,
+                'NAME': DATABASE_NAME,
+                'USER': USER,
+                'PASSWORD': PASSWORD,
+                'HOST': HOST,   # Or an IP Address that your DB is hosted on
+                'PORT': PORT,
             }
     }
 
